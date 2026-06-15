@@ -1,0 +1,397 @@
+/* ==========================================================================
+   DANNY GEVIRTZ STYLE REDESIGN - AVIRAJ HANSPAL PORTFOLIO
+   ========================================================================== */
+
+/* Variables */
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --text-muted: #86868b;
+    --border-color: #1c1c1e;
+    --hover-overlay: rgba(0, 0, 0, 0.75);
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 90px; /* Header offset */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: #222222;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444444;
+}
+
+/* ==========================================================================
+   HEADER NAVIGATION (PERFECTLY CENTERED LOGO)
+   ========================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 100;
+}
+
+/* Left Align Links */
+.nav-links-left {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-item {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-color);
+}
+
+/* Centered Logo */
+.logo-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 101;
+}
+
+.logo-center a {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
+}
+
+.logo-center a:hover {
+    opacity: 0.7;
+}
+
+/* Right Align Socials */
+.nav-social-right {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    color: var(--text-muted);
+    transition: color var(--transition-speed);
+}
+
+.social-icon:hover {
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   FILMS PAGE CONTAINER & GRID
+   ========================================================================== */
+.portfolio-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 24px 30px 40px;
+}
+
+.gallery-section {
+    width: 100%;
+}
+
+.films-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4px; /* Tiny modern gap */
+}
+
+@media (min-width: 600px) {
+    .films-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .films-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 Columns exactly like screenshot 1 */
+    }
+}
+
+.film-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    background-color: #0d0d0d;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.film-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Video Hover Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hover-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.film-item:hover .video-overlay {
+    opacity: 1;
+}
+
+.overlay-details {
+    transform: translateY(15px);
+    transition: transform 0.35s ease;
+}
+
+.film-item:hover .overlay-details {
+    transform: translateY(0);
+}
+
+.film-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+}
+
+.film-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CONTACT PAGE STYLING
+   ========================================================================== */
+.contact-page-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 70px; /* spacing above "Contact" text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-text-section {
+    text-align: center;
+    max-width: 680px;
+    padding: 0 24px;
+    margin-bottom: 70px;
+}
+
+.contact-header-title {
+    font-size: 2.1rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 35px;
+}
+
+.contact-bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #b3b3b3;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.contact-links-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.contact-direct-link {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
+}
+
+.contact-direct-link:hover {
+    opacity: 0.7;
+}
+
+/* Giant Full Bleed Bio Image */
+.contact-hero-image-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.contact-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+    width: 100%;
+    padding: 40px 8%;
+    background-color: #000000;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   LIGHTBOX VIDEO PLAYER
+   ========================================================================== */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+    z-index: 1002;
+}
+
+.close-lightbox:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.lightbox-player-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+    aspect-ratio: 16/9;
+    z-index: 1001;
+}
+
+.lightbox-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    outline: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN CORRECTIONS
+   ========================================================================== */
+@media (max-width: 767px) {
+    .site-header {
+        height: 80px;
+        padding: 0 6%;
+    }
+    body {
+        padding-top: 80px;
+    }
+    .portfolio-container {
+        padding: 15px 15px 40px;
+    }
+    .contact-page-container {
+        padding-top: 40px;
+    }
+    .contact-text-section {
+        margin-bottom: 50px;
+    }
+    .contact-header-title {
+        font-size: 1.8rem;
+    }
+    .contact-bio-text {
+        font-size: 1rem;
+    }
+    .close-lightbox {
+        top: 20px;
+        right: 20px;
+    }
+}
