@@ -369,29 +369,93 @@ body {
    ========================================================================== */
 @media (max-width: 767px) {
     .site-header {
-        height: 80px;
-        padding: 0 6%;
+        height: 70px;
+        padding: 0 16px;
     }
     body {
-        padding-top: 80px;
+        padding-top: 70px;
     }
     .portfolio-container {
-        padding: 15px 15px 40px;
+        padding: 10px 10px 30px;
     }
+
+    /* Keep details readable on mobile/touch screens without needing hover */
+    .video-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0) 100%);
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 12px;
+        text-align: left;
+    }
+    .overlay-details {
+        transform: translateY(0);
+    }
+    .film-title {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+    .film-meta {
+        font-size: 0.75rem;
+    }
+
+    /* Contact Page mobile scaling */
     .contact-page-container {
-        padding-top: 40px;
+        padding-top: 30px;
     }
     .contact-text-section {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
+        padding: 0 16px;
     }
     .contact-header-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 25px;
     }
     .contact-bio-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    .contact-direct-link {
+        font-size: 1.1rem;
+    }
+    .contact-hero-image {
+        max-height: 60vh;
+        object-fit: cover;
+    }
+
+    /* Lightbox player scaling */
+    .lightbox-player-wrapper {
+        width: 95%;
     }
     .close-lightbox {
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
+        padding: 10px;
+    }
+}
+
+/* Header layout correction on very small viewports to prevent logo overlap */
+@media (max-width: 600px) {
+    .site-header {
+        justify-content: space-between;
+        gap: 12px;
+    }
+    .logo-center {
+        position: static;
+        transform: none;
+        order: 1;
+    }
+    .logo-center a {
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+    }
+    .nav-links-left {
+        order: 2;
+        gap: 16px;
+    }
+    .nav-social-right {
+        order: 3;
+        margin-left: 0;
     }
 }
